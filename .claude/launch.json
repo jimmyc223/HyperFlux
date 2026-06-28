@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "cmd.exe",
+      "runtimeArgs": ["/c", ".claude\\start-dev.cmd"],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}
