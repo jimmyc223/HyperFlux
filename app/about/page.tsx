@@ -5,22 +5,22 @@ import Image from "next/image";
 const values = [
   {
     title: "Relentless Innovation",
-    body: "We obsess over every gram, every degree, every signal. Our gear is engineered using aerospace-grade materials and cutting-edge technology so you can focus on the adventure ahead.",
+    body: "We obsess over every milliohm, every amp, every gram. Our packs are engineered with high-drain lithium-ion cells and precision BMS so you can push your build to the limit.",
     icon: "◎",
   },
   {
-    title: "Uncompromising Durability",
-    body: "Built to outlast the harshest conditions on earth. Every product is stress-tested across extreme temperatures, elevation changes, and sustained impact before it ever reaches your pack.",
+    title: "Uncompromising Reliability",
+    body: "Built to deliver under load. Every pack is tested for sustained 70A discharge, 250A burst, and thermal stability before it ever leaves the bench.",
     icon: "◈",
   },
   {
-    title: "Minimal Footprint",
-    body: "We design for longevity, not replacement cycles. Carbon-neutral manufacturing, recycled packaging, and gear built to last a lifetime — because protecting wild places starts before you leave the trailhead.",
+    title: "Made in New Zealand",
+    body: "Designed and assembled in NZ, not mass-produced offshore. Tight quality control, honest specs, and packs built to last more cycles — not replacement cycles.",
     icon: "◇",
   },
   {
-    title: "Explorer Community",
-    body: "From beta testers on Denali to weekend hikers in the Cascades, every piece of feedback shapes what we build next. Our community of explorers is our most important R&D team.",
+    title: "Builder Community",
+    body: "From FPV racers to robotics teams, every piece of feedback shapes what we build next. Our community of pilots and builders is our most important R&D team.",
     icon: "◉",
   },
 ];
@@ -44,7 +44,7 @@ export default function AboutPage() {
             About Us
           </p>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-foreground leading-none">
-            We Build Gear
+            We Build Power
             <br />
             That Goes Further.
           </h1>
@@ -61,24 +61,22 @@ export default function AboutPage() {
             </p>
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p className="text-xl text-foreground font-medium leading-relaxed">
-                HyperFlux was born on a failed summit attempt in the Himalayas —
-                when the wrong gear turned a manageable situation into a dangerous one.
+                HyperFlux was born on a race line — when a pack that sagged under
+                load cost a podium finish that should have been a sure thing.
               </p>
               <p>
-                Our founders came back from that trip with one question: why does
-                outdoor gear still feel like it&apos;s built for the 1990s? GPS units,
-                thermal systems, and lighting are separate objects — heavy, redundant,
-                and prone to failure.
+                Our founders came back with one question: why do high-drain packs
+                still sag, overheat, and underdeliver right when you need every watt?
+                Too many batteries are built to a spec sheet, not to the load.
               </p>
               <p>
-                We spent three years working with aerospace engineers, materials
-                scientists, and a community of professional guides to build a unified
-                system. The result is Alpine and Forest — gear that thinks with you,
-                not against you.
+                We spent years working with cell suppliers and FPV and robotics
+                builders to engineer packs around real-world discharge. The result is
+                the Black Series — the 4S and 6S packs that hold voltage when it counts.
               </p>
               <p>
-                Today, HyperFlux products have been carried to the summit of every
-                continent. We&apos;re just getting started.
+                Today, HyperFlux packs power builds from FPV freestyle to heavy
+                robotics. We&apos;re just getting started.
               </p>
             </div>
           </div>
@@ -86,8 +84,8 @@ export default function AboutPage() {
           {/* Image */}
           <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-secondary">
             <Image
-              src="/images/product-backpack.png"
-              alt="HyperFlux Alpine in the field"
+              src="https://images.unsplash.com/photo-1556537902-16b47f40c55c?q=80&w=1400"
+              alt="HyperFlux Black Series powering an FPV build"
               fill
               className="object-cover"
             />
@@ -99,9 +97,9 @@ export default function AboutPage() {
       <section className="bg-foreground px-6 py-24 md:px-12 lg:px-20">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-2xl md:text-3xl lg:text-4xl font-medium text-white leading-relaxed">
-            &ldquo;Aerospace-grade materials and cutting-edge technology — designed
-            for explorers who refuse to compromise on quality or performance
-            in the wild.&rdquo;
+            &ldquo;High-drain cells and precision engineering — built for pilots,
+            builders, and competitors who refuse to compromise on power or
+            reliability.&rdquo;
           </p>
           <p className="mt-8 text-sm text-white/40 uppercase tracking-widest">
             HyperFlux Design Manifesto
@@ -155,11 +153,11 @@ export default function AboutPage() {
       >
         <div>
           <h2 className="text-2xl md:text-3xl font-medium text-foreground">
-            Join the Expedition
+            Join the Team
           </h2>
           <p className="mt-3 text-sm text-muted-foreground max-w-sm leading-relaxed">
             We&apos;re a small team building ambitious products. If you&apos;re obsessed with
-            the intersection of technology and the outdoors, we want to hear from you.
+            power electronics and high-performance flight, we want to hear from you.
           </p>
         </div>
         <a

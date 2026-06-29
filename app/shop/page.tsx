@@ -7,82 +7,47 @@ import { useState } from "react";
 
 const products = [
   {
-    id: "alpine",
-    name: "Alpine",
-    tagline: "The Expedition Backpack",
+    id: "4s-black-series",
+    name: "4S Black Series",
+    tagline: "5000mAh Li-Ion Pack",
     description:
-      "Engineered for extreme terrain. Ultra-light carbon frame with integrated GPS tracking, built-in LED flashlight, and weather-resistant construction that performs in any conditions.",
-    price: "$299",
-    image: "/images/product-backpack.png",
+      "Nominal 14.4V with 70A continuous and 250A burst discharge. Engineered for 4S FPV, robotics, and high-drain builds that demand sustained current without voltage sag.",
+    price: "$89",
+    image: "https://images.unsplash.com/photo-1662793962594-8842ff287640?q=80&w=1200",
     badge: "Bestseller",
-    features: ["GPS Tracking", "LED Flashlight", "Carbon Frame", "Weather-Resistant"],
-    category: "bottles",
+    features: ["70A Continuous", "250A Burst", "14.4V Nominal", "72Wh"],
+    category: "batteries",
   },
   {
-    id: "forest",
-    name: "Forest",
-    tagline: "The Smart Thermal",
+    id: "6s-black-series",
+    name: "6S Black Series",
+    tagline: "5000mAh Li-Ion Pack",
     description:
-      "Self-heating technology meets aerospace-grade insulation. Keeps drinks at your exact target temperature for 24 hours — from summit to basecamp.",
-    price: "$199",
-    image: "/images/product-forest.png",
-    badge: "New",
-    features: ["Self-Heating", "Smart Temp Control", "24hr Insulation", "Lightweight"],
-    category: "bottles",
+      "Nominal 21.6V for maximum energy density where peak power is non-negotiable. The same 70A continuous / 250A burst output, tuned for demanding 6S platforms.",
+    price: "$119",
+    image: "https://images.unsplash.com/photo-1774553988130-ccda57774818?q=80&w=1200",
+    badge: "Max Power",
+    features: ["70A Continuous", "250A Burst", "21.6V Nominal", "108Wh"],
+    category: "batteries",
   },
 ];
 
 const accessories = [
   {
     id: 1,
-    name: "Wireless Charging Stand",
-    description: "Induction charging dock for effortless power",
-    price: "$89",
-    image: "/images/accessory-charger.png",
-  },
-  {
-    id: 2,
-    name: "Protective Silicone Sleeve",
-    description: "Textured grip sleeve for enhanced durability",
-    price: "$45",
-    image: "/images/accessory-sleeve.png",
-  },
-  {
-    id: 3,
-    name: "Carbon Fiber Bike Mount",
-    description: "Ultra-light mounting system for cycling",
-    price: "$129",
-    image: "/images/accessory-bike-mount.png",
-  },
-  {
-    id: 4,
-    name: "Premium Carry Strap",
-    description: "Adjustable strap with quick-release clips",
-    price: "$39",
-    image: "/images/accessory-strap.png",
-  },
-  {
-    id: 5,
-    name: "Carabiner Clip System",
-    description: "Secure attachment for hands-free carrying",
-    price: "$29",
-    image: "/images/accessory-carabiner.png",
-  },
-  {
-    id: 6,
-    name: "Bluetooth Speaker Base",
-    description: "High-fidelity audio dock with grip stabilizers",
-    price: "$149",
-    image: "/images/accessory-speaker-base.png",
+    name: "Battery Strap",
+    description: "Heavy-duty 25mm velcro strap for a secure, vibration-resistant pack mount. 250mm, 2-pack.",
+    price: "$12",
+    image: "https://images.unsplash.com/photo-1701120286678-7cb81e752725?q=80&w=1200",
   },
 ];
 
-type Filter = "all" | "bottles" | "accessories";
+type Filter = "all" | "batteries" | "accessories";
 
 export default function ShopPage() {
   const [filter, setFilter] = useState<Filter>("all");
 
-  const showProducts = filter === "all" || filter === "bottles";
+  const showProducts = filter === "all" || filter === "batteries";
   const showAccessories = filter === "all" || filter === "accessories";
 
   return (
@@ -93,16 +58,16 @@ export default function ShopPage() {
       <section className="bg-foreground pt-36 pb-20 px-6 md:px-12 lg:px-20">
         <div className="max-w-4xl">
           <p className="text-xs uppercase tracking-widest text-white/40 mb-5">
-            The Collection
+            The Range
           </p>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white leading-none">
-            Gear Built
+            Power Built
             <br />
-            for the Wild.
+            for the Build.
           </h1>
           <p className="mt-6 text-base text-white/50 max-w-sm leading-relaxed">
-            Premium outdoor technology designed for explorers who refuse to
-            compromise.
+            High-power lithium-ion packs engineered for FPV, robotics, and
+            high-drain applications. Made in New Zealand.
           </p>
         </div>
       </section>
@@ -110,7 +75,7 @@ export default function ShopPage() {
       {/* Filter Bar */}
       <div className="sticky top-16 z-40 bg-background/90 backdrop-blur-sm border-b border-border">
         <div className="px-6 md:px-12 lg:px-20 py-4 flex items-center gap-2">
-          {(["all", "bottles", "accessories"] as Filter[]).map((f) => (
+          {(["all", "batteries", "accessories"] as Filter[]).map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
@@ -120,7 +85,7 @@ export default function ShopPage() {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              {f === "all" ? "All Products" : f === "bottles" ? "Bottles" : "Accessories"}
+              {f === "all" ? "All Products" : f === "batteries" ? "Batteries" : "Accessories"}
             </button>
           ))}
         </div>
@@ -130,7 +95,7 @@ export default function ShopPage() {
       {showProducts && (
         <section className="px-6 pt-16 pb-8 md:px-12 lg:px-20">
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-10">
-            Core Products
+            Black Series
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
             {products.map((product) => (

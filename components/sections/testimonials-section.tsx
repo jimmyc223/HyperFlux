@@ -16,8 +16,8 @@ export function TestimonialsSection() {
       {/* About Image */}
       <div className="relative aspect-[16/9] w-full">
         <Image
-          src="/images/3d4046a0-b072-4b07-941f-9141ee3ed4a7.png"
-          alt="Mountain peaks at sunrise"
+          src="https://images.unsplash.com/photo-1610878785620-3ab2d3a2ae7b?q=80&w=2000"
+          alt="Precision electronics for FPV and robotics"
           fill
           className="object-cover"
         />

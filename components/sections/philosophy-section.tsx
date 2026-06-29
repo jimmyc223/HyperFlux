@@ -83,7 +83,7 @@ export function PhilosophySection() {
                 }}
               >
                 <Image
-                  src="/images/product-backpack.png"
+                  src="https://images.unsplash.com/photo-1662793962594-8842ff287640?q=80&w=1400"
                   alt="4S Black Series Battery"
                   fill
                   className="object-cover"
@@ -108,7 +108,7 @@ export function PhilosophySection() {
                 }}
               >
                 <Image
-                  src="/images/02cdc426-dff4-4dff-b131-1b134c3699b5.png"
+                  src="https://images.unsplash.com/photo-1774553988130-ccda57774818?q=80&w=1400"
                   alt="6S Black Series Battery"
                   fill
                   className="object-cover"

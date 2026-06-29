@@ -6,32 +6,32 @@ const features = [
   {
     title: "70A Continuous Discharge",
     description: "Power Output",
-    image: "/images/d18fe616-5596-4559-90f5-a90f5397d0d8.png",
+    image: "https://images.unsplash.com/photo-1564940675711-ea4bac5109a5?q=80&w=1200",
   },
   {
     title: "250A Burst Capability",
     description: "Peak Performance",
-    image: "/images/e26fa9c3-966d-4966-94a4-954a1e511c1c.png",
+    image: "https://images.unsplash.com/photo-1592659762303-90081d34b277?q=80&w=1200",
   },
   {
     title: "High-Drain Cell Technology",
     description: "Cell Quality",
-    image: "/images/car.jpg",
+    image: "https://images.unsplash.com/photo-1701120286678-7cb81e752725?q=80&w=1200",
   },
   {
     title: "Precision BMS Protection",
     description: "Safety",
-    image: "/images/204cee22-9e85-49e8-9303-1d309af626b0.png",
+    image: "https://images.unsplash.com/photo-1562877773-a37120131ec4?q=80&w=1200",
   },
   {
     title: "Low Internal Resistance",
     description: "Efficiency",
-    image: "/images/led-flashlight-bottle.png",
+    image: "https://images.unsplash.com/photo-1631376178637-392efc9e356b?q=80&w=1200",
   },
   {
     title: "Made in New Zealand",
     description: "Craftsmanship",
-    image: "/images/heating-campfire.png",
+    image: "https://images.unsplash.com/photo-1676630444903-163fe485c5d1?q=80&w=1200",
   },
 ];
 

@@ -60,26 +60,26 @@ function ScrollRevealText({ text }: { text: string }) {
 
 const sideImages = [
   {
-    src: "https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=1000",
-    alt: "Forest trail",
+    src: "https://images.unsplash.com/photo-1767448068187-5be3cbc848c7?q=80&w=1200",
+    alt: "FPV flight controller circuit board",
     position: "left",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?q=80&w=1000",
-    alt: "Mountain peak",
+    src: "https://images.unsplash.com/photo-1640545232337-5cb2c7b24ca8?q=80&w=1200",
+    alt: "Lithium battery cells",
     position: "left",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000",
-    alt: "Alpine landscape",
+    src: "https://images.unsplash.com/photo-1665649926436-a1429c1f10e5?q=80&w=1200",
+    alt: "FPV drone components close-up",
     position: "right",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000",
-    alt: "Snow mountain",
+    src: "https://images.unsplash.com/photo-1774553944407-2bab830a7967?q=80&w=1200",
+    alt: "Micro FPV quadcopter",
     position: "right",
     span: 1,
   },
@@ -198,8 +198,8 @@ export function TechnologySection() {
               }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=2000"
-                alt="Aerial view of camping expedition in wilderness"
+                src="https://images.unsplash.com/photo-1551475957-4bf213ef272d?q=80&w=2000"
+                alt="Quadcopter in flight"
                 fill
                 className="object-cover"
               />

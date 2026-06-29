@@ -7,26 +7,26 @@ const word = "VOLTAGE";
 
 const sideImages = [
   {
-    src: "https://images.unsplash.com/photo-1517824806704-9040b037703b?q=80&w=1000",
-    alt: "Mountain hiking adventure",
+    src: "https://images.unsplash.com/photo-1556537902-16b47f40c55c?q=80&w=1200",
+    alt: "Red FPV racing drone with action camera",
     position: "left",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?q=80&w=1000",
-    alt: "Camping under stars",
+    src: "https://images.unsplash.com/photo-1690646728656-21dd115f4414?q=80&w=1200",
+    alt: "Pilot wearing FPV goggles",
     position: "left",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1533873984035-25970ab07461?q=80&w=1000",
-    alt: "Forest exploration",
+    src: "https://images.unsplash.com/photo-1577533870320-2c31e7e41028?q=80&w=1200",
+    alt: "Carbon-frame FPV freestyle quad",
     position: "right",
     span: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?q=80&w=1000",
-    alt: "Lake camping view",
+    src: "https://images.unsplash.com/photo-1761583780434-31e5c9ed1195?q=80&w=1200",
+    alt: "FPV drone in flight near a wind turbine",
     position: "right",
     span: 1,
   },
@@ -126,8 +126,8 @@ export function HeroSection() {
               }}
             >
               <Image
-                src="/images/hero-main.png"
-                alt="Mountain landscape with camping tent at sunset"
+                src="https://images.unsplash.com/photo-1665649925251-5d9a6d217a83?q=80&w=2000"
+                alt="FPV drone diving at speed"
                 fill
                 className="object-cover"
                 priority

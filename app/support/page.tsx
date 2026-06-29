@@ -31,27 +31,27 @@ const faqs = [
   },
   {
     id: "q4",
-    question: "How do I set up GPS tracking on the Alpine?",
+    question: "Should I choose the 4S or 6S Black Series?",
     answer:
-      "Download the HyperFlux app (iOS and Android) and create an account. Hold the side button for 3 seconds to enter pairing mode — the LED ring will pulse blue. Open the app and tap 'Add Device'. Pairing completes in under 30 seconds. Your location history is stored for up to 90 days in the app.",
+      "It comes down to your build's voltage. The 4S (14.4V nominal, 72Wh) suits 4S FPV and lighter robotics setups, while the 6S (21.6V nominal, 108Wh) delivers more energy and top-end power for demanding 6S platforms. Both share the same 5000mAh capacity and 70A continuous / 250A burst output.",
   },
   {
     id: "q5",
-    question: "How do I use the self-heating feature on the Forest?",
+    question: "How should I charge and store my packs?",
     answer:
-      "Press and hold the temperature button for 2 seconds. Use the + / - buttons to set your target temperature between 40°C and 80°C. The Forest will heat your liquid within 8–12 minutes depending on starting temperature. The LED ring pulses orange while heating and turns solid white when your target temperature is reached.",
+      "Charge on a balance charger at 1C (5A) for everyday use; higher rates are fine occasionally if your charger and leads are rated for it. For storage longer than a few days, keep packs at storage charge (around 3.8V per cell) in a cool, dry place and a LiPo-safe bag. Never charge a hot, swollen, or damaged pack.",
   },
   {
     id: "q6",
-    question: "Are HyperFlux products dishwasher safe?",
+    question: "What discharge can the Black Series actually deliver?",
     answer:
-      "The Forest bottle body is top-rack dishwasher safe. The lid and heating element cap should be hand-washed only. The Alpine backpack should not be machine-washed — spot clean with a damp cloth and mild soap, then air dry.",
+      "Every Black Series pack is rated for 70A continuous and 250A burst discharge, built around high-drain cells with low internal resistance so voltage stays stable under load. Staying within these limits keeps the pack cool and protects cycle life.",
   },
   {
     id: "q7",
-    question: "Can I use the Forest at high altitude?",
+    question: "How does cold weather affect performance?",
     answer:
-      "Yes. The Forest is tested and certified for use at altitudes up to 8,500 metres. The self-heating system automatically adjusts for reduced air pressure. Battery performance may decrease in temperatures below -20°C.",
+      "Lithium-ion packs lose some capacity and punch in the cold. For best results, keep packs above 15°C before a hard discharge and avoid charging below 0°C. Performance returns to normal once the pack warms back up.",
   },
   {
     id: "q8",
