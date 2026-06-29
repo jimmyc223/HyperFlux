@@ -1,15 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useScrollProgress } from "@/hooks/use-scroll-progress";
 
 export function GallerySection() {
   const galleryRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [sectionHeight, setSectionHeight] = useState("100vh");
-  const [translateX, setTranslateX] = useState(0);
-  const rafRef = useRef<number | null>(null);
-  const lastScrollRef = useRef(0);
+  const [maxScroll, setMaxScroll] = useState(0);
 
   const images = [
     { src: "https://images.unsplash.com/photo-1765100479165-de189b95572b?q=80&w=1600", alt: "Cinewhoop FPV drone on rock" },
@@ -22,70 +21,29 @@ export function GallerySection() {
     { src: "https://images.unsplash.com/photo-1557941051-78cc6cd3cae8?q=80&w=1600", alt: "Drone flying over terrain" },
   ];
 
-  // Calculate section height based on content width
+  // Measure how far the strip must travel horizontally, and make the section
+  // tall enough that vertical scroll drives that full travel.
   useEffect(() => {
-    const calculateHeight = () => {
+    const measure = () => {
       if (!containerRef.current) return;
       const containerWidth = containerRef.current.scrollWidth;
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-      // Height = viewport height + the extra scroll needed to reveal all content
-      const totalHeight = viewportHeight + (containerWidth - viewportWidth);
-      setSectionHeight(`${totalHeight}px`);
+      const distance = Math.max(0, containerWidth - window.innerWidth);
+      setMaxScroll(distance);
+      setSectionHeight(`${window.innerHeight + distance}px`);
     };
 
-    // Small delay to ensure container is rendered
-    const timer = setTimeout(calculateHeight, 100);
-    window.addEventListener("resize", calculateHeight);
+    // Small delay to ensure the container has laid out.
+    const timer = setTimeout(measure, 100);
+    window.addEventListener("resize", measure);
     return () => {
       clearTimeout(timer);
-      window.removeEventListener("resize", calculateHeight);
+      window.removeEventListener("resize", measure);
     };
   }, []);
 
-  const updateTransform = useCallback(() => {
-    if (!galleryRef.current || !containerRef.current) return;
-    
-    const rect = galleryRef.current.getBoundingClientRect();
-    const containerWidth = containerRef.current.scrollWidth;
-    const viewportWidth = window.innerWidth;
-    
-    // Total scroll distance needed to reveal all images
-    const totalScrollDistance = containerWidth - viewportWidth;
-    
-    // Current scroll position within this section
-    const scrolled = Math.max(0, -rect.top);
-    
-    // Progress from 0 to 1
-    const progress = Math.min(1, scrolled / totalScrollDistance);
-    
-    // Calculate new translateX
-    const newTranslateX = progress * -totalScrollDistance;
-    
-    setTranslateX(newTranslateX);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Cancel any pending animation frame
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
-      
-      // Use requestAnimationFrame for smooth updates
-      rafRef.current = requestAnimationFrame(updateTransform);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    updateTransform();
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
-    };
-  }, [updateTransform]);
+  // Eased horizontal position derived from how far we've scrolled the section.
+  const progress = useScrollProgress(galleryRef, () => maxScroll || 1);
+  const translateX = -(progress * maxScroll);
 
   return (
     <section 

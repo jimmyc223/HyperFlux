@@ -1,58 +1,23 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useRef } from "react";
+import { useScrollProgress } from "@/hooks/use-scroll-progress";
 
 export function PhilosophySection() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [alpineTranslateX, setAlpineTranslateX] = useState(-100);
-  const [forestTranslateX, setForestTranslateX] = useState(100);
-  const [titleOpacity, setTitleOpacity] = useState(1);
-  const rafRef = useRef<number | null>(null);
 
-  const updateTransforms = useCallback(() => {
-    if (!sectionRef.current) return;
-    
-    const rect = sectionRef.current.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const sectionHeight = sectionRef.current.offsetHeight;
-    
-    // Calculate progress based on scroll position
-    const scrollableRange = sectionHeight - windowHeight;
-    const scrolled = -rect.top;
-    const progress = Math.max(0, Math.min(1, scrolled / scrollableRange));
-    
-    // Alpine comes from left (-100% to 0%)
-    setAlpineTranslateX((1 - progress) * -100);
-    
-    // Forest comes from right (100% to 0%)
-    setForestTranslateX((1 - progress) * 100);
-    
-    // Title fades out as blocks come together
-    setTitleOpacity(1 - progress);
-  }, []);
+  // Eased progress as the pinned section scrolls (distance = 200vh − 100vh).
+  // Drives the two product panels sliding in and the title fading out.
+  const progress = useScrollProgress(sectionRef, () => {
+    const el = sectionRef.current;
+    return el ? el.offsetHeight - window.innerHeight : 1;
+  });
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // Cancel any pending animation frame
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
-      
-      // Use requestAnimationFrame for smooth updates
-      rafRef.current = requestAnimationFrame(updateTransforms);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    updateTransforms();
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
-    };
-  }, [updateTransforms]);
+  // 4S panel slides in from the left, 6S from the right; title fades as they meet.
+  const alpineTranslateX = (1 - progress) * -100;
+  const forestTranslateX = (1 - progress) * 100;
+  const titleOpacity = 1 - progress;
 
   return (
     <section id="products" className="bg-background">

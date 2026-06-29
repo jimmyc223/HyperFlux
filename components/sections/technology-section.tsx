@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { useScrollProgress } from "@/hooks/use-scroll-progress";
 
 function ScrollRevealText({ text }: { text: string }) {
   const containerRef = useRef<HTMLParagraphElement>(null);
@@ -87,46 +88,14 @@ const sideImages = [
 
 export function TechnologySection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const textSectionRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [textProgress, setTextProgress] = useState(0);
-  
+
   const descriptionText = "Every Hyperflux cell is selected for ultra-low internal resistance, enabling sustained 70A discharge without voltage sag. Our proprietary thermal management ensures consistent output across temperature extremes — whether you're racing FPV freestyle or driving heavy robotics loads at full throttle.";
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      
-      const rect = sectionRef.current.getBoundingClientRect();
-      const scrollableHeight = window.innerHeight * 2;
-      const scrolled = -rect.top;
-      const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
-      
-      setScrollProgress(progress);
-
-      // Text scroll progress
-      if (textSectionRef.current) {
-        const textRect = textSectionRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        
-        const startOffset = windowHeight * 0.9;
-        const endOffset = windowHeight * 0.1;
-        
-        const totalDistance = startOffset - endOffset;
-        const currentPosition = startOffset - textRect.top;
-        
-        const newTextProgress = Math.max(0, Math.min(1, currentPosition / totalDistance));
-        setTextProgress(newTextProgress);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // Eased progress for the bento expand animation (smoothed for the wheel).
+  const scrollProgress = useScrollProgress(
+    sectionRef,
+    () => window.innerHeight * 2,
+  );
 
   // Title fades out first (0 to 0.2)
   const titleOpacity = Math.max(0, 1 - (scrollProgress / 0.2));
@@ -143,9 +112,6 @@ export function TechnologySection() {
   const sideTranslateRight = 100 - (imageProgress * 100); // 100% to 0%
   const borderRadius = imageProgress * 24; // 0px to 24px
   const gap = imageProgress * 16; // 0px to 16px
-
-  // Calculate grayscale for text section based on textProgress
-  const grayscaleAmount = Math.round((1 - textProgress) * 100);
 
   return (
     <section ref={sectionRef} className="relative bg-foreground">
@@ -275,8 +241,7 @@ export function TechnologySection() {
       <div className="h-[200vh]" />
 
       {/* Description Section with Background Image and Scroll Reveal */}
-      <div 
-        ref={textSectionRef}
+      <div
         className="relative overflow-hidden bg-background px-6 py-24 md:px-12 md:py-32 lg:px-20 lg:py-40"
       >
         {/* Background Image with Grayscale Filter */}

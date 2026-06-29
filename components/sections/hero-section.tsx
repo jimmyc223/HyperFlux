@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import { useScrollProgress } from "@/hooks/use-scroll-progress";
 
 const word = "VOLTAGE";
 
@@ -34,27 +35,13 @@ const sideImages = [
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      
-      const rect = sectionRef.current.getBoundingClientRect();
-      const scrollableHeight = window.innerHeight * 2;
-      const scrolled = -rect.top;
-      const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
-      
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // Eased progress across this section's 200vh scroll space. Smoothing makes the
+  // bento expand glide on a mouse wheel instead of stepping with each notch.
+  const scrollProgress = useScrollProgress(
+    sectionRef,
+    () => window.innerHeight * 2,
+  );
 
   // Text fades out first (0 to 0.2)
   const textOpacity = Math.max(0, 1 - (scrollProgress / 0.2));

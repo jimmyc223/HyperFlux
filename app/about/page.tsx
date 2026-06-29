@@ -61,22 +61,36 @@ export default function AboutPage() {
             </p>
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p className="text-xl text-foreground font-medium leading-relaxed">
-                HyperFlux was born on a race line — when a pack that sagged under
-                load cost a podium finish that should have been a sure thing.
+                Hyperflux was born out of frustration.
               </p>
               <p>
-                Our founders came back with one question: why do high-drain packs
-                still sag, overheat, and underdeliver right when you need every watt?
-                Too many batteries are built to a spec sheet, not to the load.
+                We&apos;re a team of engineers who have been deeply involved in the
+                RC, FPV, and high-performance hobby scene in New Zealand since 2016.
+                After years of custom builds, the shortfall always seemed to be the
+                affordability of long-lasting, high-power options. We got sick of
+                choosing between overpriced gear and low-quality parts that didn&apos;t
+                last.
+              </p>
+              <p className="text-foreground font-medium">
+                So we created the solution ourselves.
               </p>
               <p>
-                We spent years working with cell suppliers and FPV and robotics
-                builders to engineer packs around real-world discharge. The result is
-                the Black Series — the 4S and 6S packs that hold voltage when it counts.
+                Hyperflux delivers high-performance, high-quality parts that are
+                designed, tested, and proudly made right here in New Zealand. Every
+                product is rigorously tested by engineers who actually use and race
+                the same gear, ensuring real-world reliability and performance you can
+                trust.
               </p>
               <p>
-                Today, HyperFlux packs power builds from FPV freestyle to heavy
-                robotics. We&apos;re just getting started.
+                No inflated markups. No compromising on quality. Just properly
+                engineered, high-performance hardware at fair prices.
+              </p>
+              <p>
+                Whether you&apos;re building your first quad or chasing competitive
+                times, we&apos;ve got your back with gear built by Kiwis, for Kiwis.
+              </p>
+              <p className="text-foreground font-medium">
+                Welcome to the Hyperflux family.
               </p>
             </div>
           </div>
