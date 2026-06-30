@@ -59,20 +59,22 @@ export function HeroSection() {
   const borderRadius = imageProgress * 24; // 0px to 24px
   const gap = imageProgress * 16; // 0px to 16px
   
-  // Vertical offset for side columns to move them up on mobile
-  const sideTranslateY = -(imageProgress * 15); // Move up by 15% when fully expanded
+  // Vertical offset for side columns — kept small so the upward shift doesn't
+  // push the side images into the floating header at full expansion.
+  const sideTranslateY = -(imageProgress * 5);
 
   return (
     <section ref={sectionRef} className="relative bg-background">
       {/* Sticky container for scroll animation */}
       <div className="sticky top-0 h-screen overflow-hidden">
-        {/* pt-24 keeps the bento grid's vertical center below the floating header
-            so it never overlaps the top of these images while pinned/scrolling. */}
-        <div className="flex h-full w-full items-center justify-center pt-24">
+        {/* pt-36 + the reduced inner bottom padding push the bento grid's visual
+            center down: clear of the floating header, and lower in the viewport
+            rather than sitting high with a big gap below. */}
+        <div className="flex h-full w-full items-center justify-center pt-[196px]">
           {/* Bento Grid Container */}
-          <div 
+          <div
             className="relative flex h-full w-full items-stretch justify-center"
-            style={{ gap: `${gap}px`, padding: `${imageProgress * 16}px`, paddingBottom: `${60 + (imageProgress * 40)}px` }}
+            style={{ gap: `${gap}px`, padding: `${imageProgress * 16}px`, paddingBottom: `${50 + (imageProgress * 38)}px` }}
           >
             
             {/* Left Column */}
