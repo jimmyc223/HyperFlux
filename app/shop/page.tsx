@@ -38,14 +38,14 @@ const accessories = [
     name: "150mm iFlight Battery Strap",
     description: "Microfiber PU leather strap, 15mm wide, with an iron buckle for a secure, non-slip pack mount on compact frames. 5-pack.",
     price: "$9",
-    image: "/images/iflight-battery-strap.jpg",
+    image: "/images/iflight-battery-strap.webp",
   },
   {
     id: 2,
     name: "250mm iFlight Battery Strap",
     description: "Microfiber PU leather strap, 15mm wide, with an iron buckle for a secure, non-slip pack mount on larger frames. 5-pack.",
     price: "$11",
-    image: "/images/iflight-battery-strap.jpg",
+    image: "/images/iflight-battery-strap.webp",
   },
 ];
 
