@@ -36,15 +36,30 @@ const products = [
   {
     id: 3,
     series: "Accessory",
-    name: "Battery Strap",
-    description: "Heavy-duty velcro strap for a secure, vibration-resistant pack mount on any frame or platform.",
-    price: "$12",
-    image: "https://images.unsplash.com/photo-1701120286678-7cb81e752725?q=80&w=1200",
+    name: "150mm iFlight Battery Strap",
+    description: "Microfiber PU leather strap with an iron buckle for a secure, non-slip pack mount on compact frames.",
+    price: "$9",
+    image: "/images/iflight-battery-strap.jpg",
     specs: [
-      { label: "Width", value: "25mm" },
+      { label: "Width", value: "15mm" },
+      { label: "Length", value: "150mm" },
+      { label: "Material", value: "PU Leather" },
+      { label: "Pack", value: "5x" },
+    ],
+    discharge: null,
+  },
+  {
+    id: 4,
+    series: "Accessory",
+    name: "250mm iFlight Battery Strap",
+    description: "Microfiber PU leather strap with an iron buckle for a secure, non-slip pack mount on larger frames.",
+    price: "$11",
+    image: "/images/iflight-battery-strap.jpg",
+    specs: [
+      { label: "Width", value: "15mm" },
       { label: "Length", value: "250mm" },
-      { label: "Material", value: "Nylon" },
-      { label: "Pack", value: "2x" },
+      { label: "Material", value: "PU Leather" },
+      { label: "Pack", value: "5x" },
     ],
     discharge: null,
   },
@@ -72,8 +87,8 @@ export function CollectionSection() {
           ))}
         </div>
 
-        {/* Desktop: 3-column Grid */}
-        <div className="hidden md:grid md:grid-cols-3 gap-8 md:px-12 lg:px-20">
+        {/* Desktop: 4-column Grid */}
+        <div className="hidden md:grid md:grid-cols-4 gap-8 md:px-12 lg:px-20">
           {products.map((product) => (
             <div key={product.id} className="group">
               <ProductCard product={product} />

@@ -66,7 +66,9 @@ export function HeroSection() {
     <section ref={sectionRef} className="relative bg-background">
       {/* Sticky container for scroll animation */}
       <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="flex h-full w-full items-center justify-center">
+        {/* pt-24 keeps the bento grid's vertical center below the floating header
+            so it never overlaps the top of these images while pinned/scrolling. */}
+        <div className="flex h-full w-full items-center justify-center pt-24">
           {/* Bento Grid Container */}
           <div 
             className="relative flex h-full w-full items-stretch justify-center"

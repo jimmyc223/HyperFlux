@@ -34,7 +34,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-3xl transition-all duration-300 ${isScrolled ? "bg-black/80 backdrop-blur-md rounded-full border border-white/10" : "bg-transparent"}`}
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-4xl transition-all duration-300 ${isScrolled ? "bg-black/80 backdrop-blur-md rounded-full border border-white/10" : "bg-transparent"}`}
       style={{
         boxShadow: isScrolled
           ? "0 0 0 1px rgba(204,0,0,0.15), 0 8px 32px rgba(0,0,0,0.6)"
@@ -43,7 +43,7 @@ export function Header() {
     >
       <div className="flex items-center justify-between transition-all duration-300 px-2 pl-5 py-2">
         {/* Logo — mark and wordmark as separate images, sized independently for legibility */}
-        <Link href="/" className="flex items-center gap-2.5 transition-opacity duration-300 hover:opacity-80">
+        <Link href="/" className="flex shrink-0 items-center gap-2.5 transition-opacity duration-300 hover:opacity-80">
           <Image
             src="/images/logo-mark.png"
             alt="Hyperflux"
@@ -62,25 +62,25 @@ export function Header() {
           />
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-10 md:flex">
-          {navLinks.map(({ label, href }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`text-sm tracking-wider uppercase transition-colors ${
-                pathname === href
-                  ? "text-white font-semibold"
-                  : "text-white/50 hover:text-white"
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
+        {/* Nav + CTA group — kept together so it stays pinned to the right edge,
+            with its own gap from the logo and a controlled gap before Shop Now. */}
+        <div className="hidden items-center gap-10 lg:flex">
+          <nav className="flex items-center gap-8">
+            {navLinks.map(({ label, href }) => (
+              <Link
+                key={href}
+                href={href}
+                className={`text-sm tracking-wider uppercase transition-colors ${
+                  pathname === href
+                    ? "text-white font-semibold"
+                    : "text-white/50 hover:text-white"
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
 
-        {/* CTA */}
-        <div className="hidden items-center gap-6 md:flex">
           <Link
             href="/shop"
             className="px-4 py-2 text-sm font-bold tracking-widest uppercase transition-all rounded-full bg-primary text-white hover:bg-red-700"
@@ -93,7 +93,7 @@ export function Header() {
         <button
           type="button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="transition-colors text-white md:hidden"
+          className="transition-colors text-white lg:hidden"
           aria-label="Toggle menu"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -102,7 +102,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="border-t border-white/10 bg-black/95 px-6 py-8 md:hidden rounded-b-2xl">
+        <div className="border-t border-white/10 bg-black/95 px-6 py-8 lg:hidden rounded-b-2xl">
           <nav className="flex flex-col gap-6">
             {navLinks.map(({ label, href }) => (
               <Link

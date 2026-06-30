@@ -35,10 +35,17 @@ const products = [
 const accessories = [
   {
     id: 1,
-    name: "Battery Strap",
-    description: "Heavy-duty 25mm velcro strap for a secure, vibration-resistant pack mount. 250mm, 2-pack.",
-    price: "$12",
-    image: "https://images.unsplash.com/photo-1701120286678-7cb81e752725?q=80&w=1200",
+    name: "150mm iFlight Battery Strap",
+    description: "Microfiber PU leather strap, 15mm wide, with an iron buckle for a secure, non-slip pack mount on compact frames. 5-pack.",
+    price: "$9",
+    image: "/images/iflight-battery-strap.jpg",
+  },
+  {
+    id: 2,
+    name: "250mm iFlight Battery Strap",
+    description: "Microfiber PU leather strap, 15mm wide, with an iron buckle for a secure, non-slip pack mount on larger frames. 5-pack.",
+    price: "$11",
+    image: "/images/iflight-battery-strap.jpg",
   },
 ];
 
