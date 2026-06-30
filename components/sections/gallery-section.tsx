@@ -13,12 +13,12 @@ export function GallerySection() {
   const images = [
     { src: "https://images.unsplash.com/photo-1765100479165-de189b95572b?q=80&w=1600", alt: "Cinewhoop FPV drone on rock" },
     { src: "https://images.unsplash.com/photo-1580287925446-7ed8ce2709c3?q=80&w=1600", alt: "FPV drones at sunset" },
-    { src: "https://images.unsplash.com/photo-1529611934128-376c7bb1c88a?q=80&w=1600", alt: "Drone in flight over water" },
+    { src: "/images/aerial-fields.jpg", alt: "Aerial drone view over New Zealand farmland" },
     { src: "https://images.unsplash.com/photo-1592318348310-f31b61a931c8?q=80&w=1600", alt: "Battery pack powering an e-bike" },
     { src: "https://images.unsplash.com/photo-1487304655522-c039cc299c9d?q=80&w=1600", alt: "Folding quadcopter drone" },
     { src: "https://images.unsplash.com/photo-1541617434114-48c3a51d0ab2?q=80&w=1600", alt: "FPV drone and controller" },
     { src: "https://images.unsplash.com/photo-1742899273038-67ff67477663?q=80&w=1600", alt: "High-capacity battery cells" },
-    { src: "https://images.unsplash.com/photo-1557941051-78cc6cd3cae8?q=80&w=1600", alt: "Drone flying over terrain" },
+    { src: "/images/nz-alps.jpg", alt: "Aoraki Mount Cook, New Zealand" },
   ];
 
   // Measure how far the strip must travel horizontally, and make the section

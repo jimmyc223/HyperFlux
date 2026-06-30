@@ -9,7 +9,7 @@ const products = [
     name: "5000mAh Li-Ion Pack",
     description: "Nominal 14.4V. Engineered for 4S applications demanding sustained high-current output.",
     price: "$89",
-    image: "/images/accessory-charger.png",
+    image: "https://images.unsplash.com/photo-1662793962594-8842ff287640?q=80&w=1200",
     specs: [
       { label: "Capacity", value: "5000mAh" },
       { label: "Nominal", value: "14.4V" },
@@ -24,7 +24,7 @@ const products = [
     name: "5000mAh Li-Ion Pack",
     description: "Nominal 21.6V. Maximum energy density for 6S builds where peak power is non-negotiable.",
     price: "$119",
-    image: "/images/accessory-sleeve.png",
+    image: "/images/hyperflux-6s-pack.png",
     specs: [
       { label: "Capacity", value: "5000mAh" },
       { label: "Nominal", value: "21.6V" },
@@ -39,7 +39,7 @@ const products = [
     name: "Battery Strap",
     description: "Heavy-duty velcro strap for a secure, vibration-resistant pack mount on any frame or platform.",
     price: "$12",
-    image: "/images/accessory-strap.png",
+    image: "https://images.unsplash.com/photo-1701120286678-7cb81e752725?q=80&w=1200",
     specs: [
       { label: "Width", value: "25mm" },
       { label: "Length", value: "250mm" },
@@ -88,13 +88,13 @@ export function CollectionSection() {
 function ProductCard({ product }: { product: typeof products[number] }) {
   return (
     <>
-      {/* Image */}
-      <div className="relative aspect-[3/4] overflow-hidden bg-card border border-border">
+      {/* Image — white studio card to suit the product-on-white photography */}
+      <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-white border border-border">
         <FadeImage
           src={product.image || "/placeholder.svg"}
           alt={product.name}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-700"
+          className="object-contain p-8 group-hover:scale-105 transition-transform duration-700"
         />
         {/* Series badge */}
         <div className="absolute top-4 left-4">

@@ -113,8 +113,8 @@ export function HeroSection() {
               }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1665649925251-5d9a6d217a83?q=80&w=2000"
-                alt="FPV drone diving at speed"
+                src="/images/fpv-whoop.webp"
+                alt="Hyperflux-powered FPV cinewhoop ready to fly"
                 fill
                 className="object-cover"
                 priority

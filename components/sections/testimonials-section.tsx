@@ -16,8 +16,8 @@ export function TestimonialsSection() {
       {/* About Image */}
       <div className="relative aspect-[16/9] w-full">
         <Image
-          src="https://images.unsplash.com/photo-1610878785620-3ab2d3a2ae7b?q=80&w=2000"
-          alt="Precision electronics for FPV and robotics"
+          src="/images/fpv-pilot.jpg"
+          alt="FPV pilot flying on a Hyperflux-powered build"
           fill
           className="object-cover"
         />

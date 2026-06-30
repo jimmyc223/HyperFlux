@@ -25,7 +25,7 @@ const products = [
     description:
       "Nominal 21.6V for maximum energy density where peak power is non-negotiable. The same 70A continuous / 250A burst output, tuned for demanding 6S platforms.",
     price: "$119",
-    image: "https://images.unsplash.com/photo-1774553988130-ccda57774818?q=80&w=1200",
+    image: "/images/hyperflux-6s-pack.png",
     badge: "Max Power",
     features: ["70A Continuous", "250A Burst", "21.6V Nominal", "108Wh"],
     category: "batteries",
@@ -100,13 +100,13 @@ export default function ShopPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
             {products.map((product) => (
               <div key={product.id} id={product.id} className="group">
-                {/* Image */}
-                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-secondary">
+                {/* Image — white studio card to suit the product-on-white photography */}
+                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-white">
                   <FadeImage
                     src={product.image}
                     alt={product.name}
                     fill
-                    className="object-cover group-hover:scale-105"
+                    className="object-contain p-8 group-hover:scale-105"
                   />
                   {product.badge && (
                     <span className="absolute top-4 left-4 bg-background text-foreground text-xs px-3 py-1 rounded-full font-medium">
@@ -167,12 +167,12 @@ export default function ShopPage() {
           <div className="flex gap-6 overflow-x-auto pb-4 md:hidden snap-x snap-mandatory">
             {accessories.map((item) => (
               <div key={item.id} className="group flex-shrink-0 w-[75vw] snap-center">
-                <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-secondary">
+                <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-white">
                   <FadeImage
                     src={item.image}
                     alt={item.name}
                     fill
-                    className="object-cover group-hover:scale-105"
+                    className="object-contain p-8 group-hover:scale-105"
                   />
                 </div>
                 <div className="py-5">
@@ -201,12 +201,12 @@ export default function ShopPage() {
           <div className="hidden md:grid md:grid-cols-3 gap-8">
             {accessories.map((item) => (
               <div key={item.id} className="group">
-                <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-secondary">
+                <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-white">
                   <FadeImage
                     src={item.image}
                     alt={item.name}
                     fill
-                    className="object-cover group-hover:scale-105"
+                    className="object-contain p-8 group-hover:scale-105"
                   />
                 </div>
                 <div className="py-5">

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = {
   explore: [
@@ -31,8 +32,14 @@ export function FooterSection() {
         <div className="grid grid-cols-2 gap-12 md:grid-cols-4 lg:grid-cols-5">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1 lg:col-span-2">
-            <Link href="/" className="text-lg font-bold tracking-widest">
-              <span className="text-white">HYPER</span><span className="text-primary">FLUX</span>
+            <Link href="/" className="inline-flex">
+              <Image
+                src="/images/logo-mark.png"
+                alt="Hyperflux High Power"
+                width={376}
+                height={244}
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               High-power lithium-ion batteries engineered for FPV, robotics, and high-drain applications. Made in New Zealand.

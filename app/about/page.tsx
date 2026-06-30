@@ -26,10 +26,10 @@ const values = [
 ];
 
 const team = [
-  { name: "Mia Larsen", role: "Founder & CEO", image: "/images/placeholder-user.jpg" },
-  { name: "Kai Oduya", role: "Head of Engineering", image: "/images/placeholder-user.jpg" },
-  { name: "Sienna Park", role: "Lead Industrial Designer", image: "/images/placeholder-user.jpg" },
-  { name: "Renzo Mbeki", role: "Director of Operations", image: "/images/placeholder-user.jpg" },
+  { name: "Mia Larsen", role: "Founder & CEO", image: "/placeholder-user.jpg" },
+  { name: "Kai Oduya", role: "Head of Engineering", image: "/placeholder-user.jpg" },
+  { name: "Sienna Park", role: "Lead Industrial Designer", image: "/placeholder-user.jpg" },
+  { name: "Renzo Mbeki", role: "Director of Operations", image: "/placeholder-user.jpg" },
 ];
 
 export default function AboutPage() {
@@ -98,8 +98,8 @@ export default function AboutPage() {
           {/* Image */}
           <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-secondary">
             <Image
-              src="https://images.unsplash.com/photo-1556537902-16b47f40c55c?q=80&w=1400"
-              alt="HyperFlux Black Series powering an FPV build"
+              src="/images/nz-lupins.jpg"
+              alt="New Zealand high country, where Hyperflux is designed and built"
               fill
               className="object-cover"
             />
