@@ -7,9 +7,8 @@ import './globals.css'
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'HYPERFLUX | Go Further',
-  description: 'Premium smart gear engineered for adventure. GPS tracking, LED flashlight, and self-heating technology.',
-  generator: 'v0.app',
+  title: 'HYPERFLUX | High-Power Li-Ion Batteries for FPV & Robotics',
+  description: 'NZ-made high-drain lithium-ion battery packs engineered for FPV, robotics, and high-current applications. 70A continuous, 250A burst discharge.',
   icons: {
     icon: [
       {
