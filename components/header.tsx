@@ -42,15 +42,23 @@ export function Header() {
       }}
     >
       <div className="flex items-center justify-between transition-all duration-300 px-2 pl-5 py-2">
-        {/* Logo */}
-        <Link href="/" className="flex items-center transition-opacity duration-300 hover:opacity-80">
+        {/* Logo — mark and wordmark as separate images, sized independently for legibility */}
+        <Link href="/" className="flex items-center gap-2.5 transition-opacity duration-300 hover:opacity-80">
           <Image
             src="/images/logo-mark.png"
+            alt="Hyperflux"
+            width={376}
+            height={161}
+            priority
+            className="h-8 w-auto md:h-10"
+          />
+          <Image
+            src="/images/HyperFlux Text only.png"
             alt="Hyperflux High Power"
             width={376}
-            height={244}
+            height={83}
             priority
-            className="h-9 w-auto md:h-10"
+            className="h-8 w-auto md:h-10"
           />
         </Link>
 

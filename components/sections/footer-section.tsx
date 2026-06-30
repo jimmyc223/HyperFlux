@@ -34,11 +34,11 @@ export function FooterSection() {
           <div className="col-span-2 md:col-span-1 lg:col-span-2">
             <Link href="/" className="inline-flex">
               <Image
-                src="/images/logo-mark.png"
+                src="/images/Hyperflux Logo Text and Image.png"
                 alt="Hyperflux High Power"
                 width={376}
                 height={244}
-                className="h-10 w-auto"
+                className="h-14 w-auto"
               />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">

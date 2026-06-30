@@ -113,8 +113,8 @@ export function HeroSection() {
               }}
             >
               <Image
-                src="/images/fpv-whoop.webp"
-                alt="Hyperflux-powered FPV cinewhoop ready to fly"
+                src="/images/fpv-pilot.jpg"
+                alt="FPV pilot flying a Hyperflux-powered build"
                 fill
                 className="object-cover"
                 priority

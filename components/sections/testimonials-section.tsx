@@ -16,8 +16,8 @@ export function TestimonialsSection() {
       {/* About Image */}
       <div className="relative aspect-[16/9] w-full">
         <Image
-          src="/images/fpv-pilot.jpg"
-          alt="FPV pilot flying on a Hyperflux-powered build"
+          src="/images/fpv-whoop.webp"
+          alt="Hyperflux-powered FPV cinewhoop ready to fly"
           fill
           className="object-cover"
         />
