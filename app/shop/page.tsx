@@ -13,7 +13,7 @@ const products = [
     description:
       "Nominal 14.4V with 70A continuous and 250A burst discharge. Engineered for 4S FPV, robotics, and high-drain builds that demand sustained current without voltage sag.",
     price: "$89",
-    image: "https://images.unsplash.com/photo-1662793962594-8842ff287640?q=80&w=1200",
+    image: "/images/hyperflux-6s-pack.png",
     badge: "Bestseller",
     features: ["70A Continuous", "250A Burst", "14.4V Nominal", "72Wh"],
     category: "batteries",

@@ -39,7 +39,7 @@ export function PhilosophySection() {
             <div className="relative z-10 grid grid-cols-1 gap-4 px-6 md:grid-cols-2 md:px-12 lg:px-20">
               {/* 4S Image - comes from left */}
               <div
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-card border border-border"
+                className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white border border-border"
                 style={{
                   transform: `translate3d(${alpineTranslateX}%, 0, 0)`,
                   WebkitTransform: `translate3d(${alpineTranslateX}%, 0, 0)`,
@@ -48,23 +48,19 @@ export function PhilosophySection() {
                 }}
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1662793962594-8842ff287640?q=80&w=1400"
+                  src="/images/hyperflux-6s-pack.png"
                   alt="4S Black Series Battery"
                   fill
-                  className="object-cover"
+                  className="object-contain p-8"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="inline-block bg-primary px-3 py-1 mb-3">
-                    <span className="text-xs font-bold tracking-widest uppercase text-white">4S · Black Series</span>
-                  </div>
-                  <p className="text-2xl font-bold text-white tracking-tight">5000mAh · 70A</p>
+                <div className="absolute top-4 left-4">
+                  <span className="inline-block bg-primary px-3 py-1 text-xs font-bold tracking-widest uppercase text-white">4S · Black Series</span>
                 </div>
               </div>
 
               {/* 6S Image - comes from right */}
               <div
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-card border border-border"
+                className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white border border-border"
                 style={{
                   transform: `translate3d(${forestTranslateX}%, 0, 0)`,
                   WebkitTransform: `translate3d(${forestTranslateX}%, 0, 0)`,
@@ -73,17 +69,13 @@ export function PhilosophySection() {
                 }}
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1774553988130-ccda57774818?q=80&w=1400"
+                  src="/images/hyperflux-6s-pack.png"
                   alt="6S Black Series Battery"
                   fill
-                  className="object-cover"
+                  className="object-contain p-8"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="inline-block bg-primary px-3 py-1 mb-3">
-                    <span className="text-xs font-bold tracking-widest uppercase text-white">6S · Black Series</span>
-                  </div>
-                  <p className="text-2xl font-bold text-white tracking-tight">5000mAh · 70A</p>
+                <div className="absolute top-4 left-4">
+                  <span className="inline-block bg-primary px-3 py-1 text-xs font-bold tracking-widest uppercase text-white">6S · Black Series</span>
                 </div>
               </div>
             </div>

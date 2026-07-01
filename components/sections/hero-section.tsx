@@ -45,10 +45,10 @@ export function HeroSection() {
 
   // Text fades out first (0 to 0.2)
   const textOpacity = Math.max(0, 1 - (scrollProgress / 0.2));
-  
+
   // Image transforms start after text fades (0.2 to 1)
   const imageProgress = Math.max(0, Math.min(1, (scrollProgress - 0.2) / 0.8));
-  
+
   // Smooth interpolations
   const centerWidth = 100 - (imageProgress * 58); // 100% to 42%
   const centerHeight = 100 - (imageProgress * 30); // 100% to 70%
@@ -58,139 +58,150 @@ export function HeroSection() {
   const sideTranslateRight = 100 - (imageProgress * 100); // 100% to 0%
   const borderRadius = imageProgress * 24; // 0px to 24px
   const gap = imageProgress * 16; // 0px to 16px
-  
+
   // Vertical offset for side columns — kept small so the upward shift doesn't
   // push the side images into the floating header at full expansion.
   const sideTranslateY = -(imageProgress * 5);
 
   return (
-    <section ref={sectionRef} className="relative bg-background">
-      {/* Sticky container for scroll animation */}
-      <div className="sticky top-0 h-screen overflow-hidden">
-        {/* pt-36 + the reduced inner bottom padding push the bento grid's visual
-            center down: clear of the floating header, and lower in the viewport
-            rather than sitting high with a big gap below. */}
-        <div className="flex h-full w-full items-center justify-center pt-[196px]">
-          {/* Bento Grid Container */}
-          <div
-            className="relative flex h-full w-full items-stretch justify-center"
-            style={{ gap: `${gap}px`, padding: `${imageProgress * 16}px`, paddingBottom: `${50 + (imageProgress * 38)}px` }}
-          >
-            
-            {/* Left Column */}
-            <div 
-              className="flex flex-col will-change-transform"
+    <>
+      <section ref={sectionRef} className="relative bg-background">
+        {/* Sticky container for scroll animation */}
+        <div className="sticky top-0 h-screen overflow-hidden">
+          {/* At rest all padding is 0, so the grid fills the viewport — picture 1
+              is full-screen (the floating header sits over its top edge). As
+              imageProgress grows on scroll, the top/bottom padding grows so the
+              shrinking bento settles lower, clear of the header. */}
+          <div className="flex h-full w-full items-center justify-center">
+            {/* Bento Grid Container */}
+            <div
+              className="relative flex h-full w-full items-stretch justify-center"
               style={{
-                width: `${sideWidth}%`,
                 gap: `${gap}px`,
-                transform: `translateX(${sideTranslateLeft}%) translateY(${sideTranslateY}%)`,
-                opacity: sideOpacity,
+                paddingTop: `${imageProgress * 196}px`,
+                paddingBottom: `${imageProgress * 88}px`,
+                paddingLeft: `${imageProgress * 16}px`,
+                paddingRight: `${imageProgress * 16}px`,
               }}
             >
-              {sideImages.filter(img => img.position === "left").map((img, idx) => (
-                <div 
-                  key={idx} 
-                  className="relative overflow-hidden will-change-transform"
-                  style={{
-                    flex: img.span,
-                    borderRadius: `${borderRadius}px`,
-                  }}
-                >
-                  <Image
-                    src={img.src || "/placeholder.svg"}
-                    alt={img.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
 
-            {/* Main Hero Image - Center */}
-            <div 
-              className="relative overflow-hidden will-change-transform"
-              style={{
-                width: `${centerWidth}%`,
-                height: `${centerHeight}%`,
-                flex: "0 0 auto",
-                borderRadius: `${borderRadius}px`,
-              }}
-            >
-              <Image
-                src="/images/fpv-pilot.jpg"
-                alt="FPV pilot flying a Hyperflux-powered build"
-                fill
-                className="object-cover"
-                priority
-              />
-              
-              {/* Overlay Text - Fades out first */}
-              <div 
-                className="absolute inset-0 flex items-end overflow-hidden"
-                style={{ opacity: textOpacity }}
+              {/* Left Column */}
+              <div
+                className="flex flex-col will-change-transform"
+                style={{
+                  width: `${sideWidth}%`,
+                  gap: `${gap}px`,
+                  transform: `translateX(${sideTranslateLeft}%) translateY(${sideTranslateY}%)`,
+                  opacity: sideOpacity,
+                }}
               >
-                <h1 className="w-full text-[22vw] font-medium leading-[0.8] tracking-tighter text-white">
-                  {word.split("").map((letter, index) => (
-                    <span
-                      key={index}
-                      className="inline-block animate-[slideUp_0.8s_ease-out_forwards] opacity-0"
-                      style={{
-                        animationDelay: `${index * 0.08}s`,
-                        transition: 'all 1.5s',
-                        transitionTimingFunction: 'cubic-bezier(0.86, 0, 0.07, 1)',
-                      }}
-                    >
-                      {letter}
-                    </span>
-                  ))}
-                </h1>
+                {sideImages.filter(img => img.position === "left").map((img, idx) => (
+                  <div
+                    key={idx}
+                    className="relative overflow-hidden will-change-transform"
+                    style={{
+                      flex: img.span,
+                      borderRadius: `${borderRadius}px`,
+                    }}
+                  >
+                    <Image
+                      src={img.src || "/placeholder.svg"}
+                      alt={img.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
               </div>
-            </div>
 
-            {/* Right Column */}
-            <div 
-              className="flex flex-col will-change-transform"
-              style={{
-                width: `${sideWidth}%`,
-                gap: `${gap}px`,
-                transform: `translateX(${sideTranslateRight}%) translateY(${sideTranslateY}%)`,
-                opacity: sideOpacity,
-              }}
-            >
-              {sideImages.filter(img => img.position === "right").map((img, idx) => (
-                <div 
-                  key={idx} 
-                  className="relative overflow-hidden will-change-transform"
-                  style={{
-                    flex: img.span,
-                    borderRadius: `${borderRadius}px`,
-                  }}
+              {/* Main Hero Image - Center */}
+              <div
+                className="relative overflow-hidden will-change-transform"
+                style={{
+                  width: `${centerWidth}%`,
+                  height: `${centerHeight}%`,
+                  flex: "0 0 auto",
+                  borderRadius: `${borderRadius}px`,
+                }}
+              >
+                <Image
+                  src="/images/fpv-pilot.jpg"
+                  alt="FPV pilot flying a Hyperflux-powered build"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+
+                {/* Overlay Text - Fades out first */}
+                <div
+                  className="absolute inset-0 flex items-end overflow-hidden"
+                  style={{ opacity: textOpacity }}
                 >
-                  <Image
-                    src={img.src || "/placeholder.svg"}
-                    alt={img.alt}
-                    fill
-                    className="object-cover"
-                  />
+                  <h1 className="w-full text-[22vw] font-medium leading-[0.8] tracking-tighter text-white">
+                    {word.split("").map((letter, index) => (
+                      <span
+                        key={index}
+                        className="inline-block animate-[slideUp_0.8s_ease-out_forwards] opacity-0"
+                        style={{
+                          animationDelay: `${index * 0.08}s`,
+                          transition: 'all 1.5s',
+                          transitionTimingFunction: 'cubic-bezier(0.86, 0, 0.07, 1)',
+                        }}
+                      >
+                        {letter}
+                      </span>
+                    ))}
+                  </h1>
                 </div>
-              ))}
-            </div>
+              </div>
 
+              {/* Right Column */}
+              <div
+                className="flex flex-col will-change-transform"
+                style={{
+                  width: `${sideWidth}%`,
+                  gap: `${gap}px`,
+                  transform: `translateX(${sideTranslateRight}%) translateY(${sideTranslateY}%)`,
+                  opacity: sideOpacity,
+                }}
+              >
+                {sideImages.filter(img => img.position === "right").map((img, idx) => (
+                  <div
+                    key={idx}
+                    className="relative overflow-hidden will-change-transform"
+                    style={{
+                      flex: img.span,
+                      borderRadius: `${borderRadius}px`,
+                    }}
+                  >
+                    <Image
+                      src={img.src || "/placeholder.svg"}
+                      alt={img.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Scroll space to enable animation */}
-      <div className="h-[200vh]" />
+        {/* Scroll space to enable animation */}
+        <div className="h-[200vh]" />
+      </section>
 
-      {/* Tagline Section */}
-      <div className="px-6 pt-32 pb-28 md:pt-48 md:px-12 md:pb-36 lg:px-20 lg:pt-56 lg:pb-44">
+      {/* Tagline Section — kept OUTSIDE the pinned section above. Inside it, the
+          sticky picture 1 stays pinned a little longer than the scroll space and
+          painted over this text; as a sibling the bento releases first. */}
+      <div className="bg-background px-6 pt-32 pb-28 md:pt-48 md:px-12 md:pb-36 lg:px-20 lg:pt-56 lg:pb-44">
         <p className="mx-auto max-w-2xl text-center text-2xl leading-relaxed text-muted-foreground md:text-3xl lg:text-[2.5rem] lg:leading-snug">
           High-density power.
           <br />
           Zero compromises.
         </p>
       </div>
-    </section>
+    </>
   );
 }

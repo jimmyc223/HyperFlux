@@ -9,7 +9,7 @@ const products = [
     name: "5000mAh Li-Ion Pack",
     description: "Nominal 14.4V. Engineered for 4S applications demanding sustained high-current output.",
     price: "$89",
-    image: "https://images.unsplash.com/photo-1662793962594-8842ff287640?q=80&w=1200",
+    image: "/images/hyperflux-6s-pack.png",
     specs: [
       { label: "Capacity", value: "5000mAh" },
       { label: "Nominal", value: "14.4V" },
