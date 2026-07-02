@@ -1,0 +1,13 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Every read and write in this app goes through the Firebase Admin SDK on
+    // the server, which bypasses security rules entirely. The client Firebase
+    // SDK is used ONLY for Auth (login), never for Firestore. So we deny all
+    // direct client access to the database.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

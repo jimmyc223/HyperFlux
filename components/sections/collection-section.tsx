@@ -1,71 +1,11 @@
-"use client";
-
 import { FadeImage } from "@/components/fade-image";
+import { getAllProducts } from "@/lib/products";
+import { formatPrice } from "@/lib/format";
+import type { Product } from "@/lib/types";
 
-const products = [
-  {
-    id: 1,
-    series: "4S · Black Series",
-    name: "5000mAh Li-Ion Pack",
-    description: "Nominal 14.4V. Engineered for 4S applications demanding sustained high-current output.",
-    price: "$89",
-    image: "/images/hyperflux-6s-pack.png",
-    specs: [
-      { label: "Capacity", value: "5000mAh" },
-      { label: "Nominal", value: "14.4V" },
-      { label: "Max", value: "16.8V" },
-      { label: "Energy", value: "72Wh" },
-    ],
-    discharge: { continuous: "70A", burst: "250A" },
-  },
-  {
-    id: 2,
-    series: "6S · Black Series",
-    name: "5000mAh Li-Ion Pack",
-    description: "Nominal 21.6V. Maximum energy density for 6S builds where peak power is non-negotiable.",
-    price: "$119",
-    image: "/images/hyperflux-6s-pack.png",
-    specs: [
-      { label: "Capacity", value: "5000mAh" },
-      { label: "Nominal", value: "21.6V" },
-      { label: "Max", value: "25.2V" },
-      { label: "Energy", value: "108Wh" },
-    ],
-    discharge: { continuous: "70A", burst: "250A" },
-  },
-  {
-    id: 3,
-    series: "Accessory",
-    name: "150mm iFlight Battery Strap",
-    description: "Microfiber PU leather strap with an iron buckle for a secure, non-slip pack mount on compact frames.",
-    price: "$9",
-    image: "/images/iflight-battery-strap.webp",
-    specs: [
-      { label: "Width", value: "15mm" },
-      { label: "Length", value: "150mm" },
-      { label: "Material", value: "PU Leather" },
-      { label: "Pack", value: "5x" },
-    ],
-    discharge: null,
-  },
-  {
-    id: 4,
-    series: "Accessory",
-    name: "250mm iFlight Battery Strap",
-    description: "Microfiber PU leather strap with an iron buckle for a secure, non-slip pack mount on larger frames.",
-    price: "$11",
-    image: "/images/iflight-battery-strap.webp",
-    specs: [
-      { label: "Width", value: "15mm" },
-      { label: "Length", value: "250mm" },
-      { label: "Material", value: "PU Leather" },
-      { label: "Pack", value: "5x" },
-    ],
-    discharge: null,
-  },
-];
+export async function CollectionSection() {
+  const products = await getAllProducts();
 
-export function CollectionSection() {
   return (
     <section id="products" className="bg-background">
       {/* Section Title */}
@@ -100,21 +40,21 @@ export function CollectionSection() {
   );
 }
 
-function ProductCard({ product }: { product: typeof products[number] }) {
+function ProductCard({ product }: { product: Product }) {
   return (
     <>
       {/* Image — white studio card to suit the product-on-white photography */}
       <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-white border border-border">
         <FadeImage
           src={product.image || "/placeholder.svg"}
-          alt={product.name}
+          alt={product.homeName}
           fill
           className="object-contain p-8 group-hover:scale-105 transition-transform duration-700"
         />
         {/* Series badge */}
         <div className="absolute top-4 left-4">
           <span className="bg-primary px-3 py-1 text-xs font-bold tracking-widest uppercase text-white">
-            {product.series}
+            {product.homeSeries}
           </span>
         </div>
         {/* Discharge badge — only for batteries */}
@@ -137,13 +77,15 @@ function ProductCard({ product }: { product: typeof products[number] }) {
         <div className="flex items-start justify-between gap-4 mb-3">
           <div className="flex-1">
             <h3 className="text-lg font-bold uppercase tracking-tight text-foreground leading-snug">
-              {product.name}
+              {product.homeName}
             </h3>
             <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-              {product.description}
+              {product.homeDescription}
             </p>
           </div>
-          <span className="text-xl font-bold text-foreground shrink-0">{product.price}</span>
+          <span className="text-xl font-bold text-foreground shrink-0">
+            {formatPrice(product.priceCents, product.currency)}
+          </span>
         </div>
 
         {/* Spec grid */}

@@ -9,6 +9,10 @@ import { EditorialSection } from "@/components/sections/editorial-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { FooterSection } from "@/components/sections/footer-section";
 
+// The home page's collection grid reads the catalog from Firestore, so render
+// per request rather than prerendering at build time (no DB creds at build).
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">

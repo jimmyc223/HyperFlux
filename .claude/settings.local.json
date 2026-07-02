@@ -2,7 +2,17 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(python -m uv tool install:*)",
+      "Bash(uv tool:*)",
+      "Bash(python -m uv tool:*)",
+      "Bash(graphify:*)",
+      "PowerShell(& \"C:\\\\Users\\\\jches\\\\AppData\\\\Roaming\\\\uv\\\\tools\\\\graphifyy\\\\Scripts\\\\python.exe\" \"graphify-out\\\\_step2_detect.py\")",
+      "PowerShell(& \"C:\\\\Users\\\\jches\\\\AppData\\\\Roaming\\\\uv\\\\tools\\\\graphifyy\\\\Scripts\\\\python.exe\" \"graphify-out\\\\_step3a_ast.py\")",
+      "PowerShell(& \"C:\\\\Users\\\\jches\\\\AppData\\\\Roaming\\\\uv\\\\tools\\\\graphifyy\\\\Scripts\\\\python.exe\" \"graphify-out\\\\_step3b0_cache.py\")",
+      "Bash(python -c \"import json; json.load\\(open\\(r'C:\\\\Users\\\\jches\\\\OneDrive\\\\Desktop\\\\Hyperflux\\\\Hyperflux Website\\\\Website Landing Page Template\\\\graphify-out\\\\.graphify_chunk_01.json'\\)\\); print\\('OK'\\)\")",
+      "PowerShell(& \"C:\\\\Users\\\\jches\\\\AppData\\\\Roaming\\\\uv\\\\tools\\\\graphifyy\\\\Scripts\\\\python.exe\" \"graphify-out\\\\_step3b3_merge.py\")",
+      "PowerShell(& \"C:\\\\Users\\\\jches\\\\AppData\\\\Roaming\\\\uv\\\\tools\\\\graphifyy\\\\Scripts\\\\python.exe\" \"graphify-out\\\\_step3b3_cache_merge.py\")"
     ]
   }
 }

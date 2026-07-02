@@ -21,7 +21,7 @@ const faqs = [
     id: "q2",
     question: "How long does shipping take?",
     answer:
-      "Standard shipping (3–5 business days) is free on all orders over $50. Express shipping (1–2 business days) is available for $12.99. International orders typically arrive within 7–14 business days depending on your location. All orders include a tracking number.",
+      "Standard shipping (3–5 business days) is free on all orders over $50, otherwise a flat $7.99. Express shipping (1–2 business days) is available for $12.99. All orders include a tracking number.",
   },
   {
     id: "q3",
@@ -57,7 +57,7 @@ const faqs = [
     id: "q8",
     question: "Do you ship internationally?",
     answer:
-      "Yes — we ship to over 50 countries. International orders may be subject to import duties and taxes which are the responsibility of the recipient. Shipping times and costs vary by destination and are calculated at checkout.",
+      "Right now we ship within New Zealand only. International shipping is on the way — get in touch via the form below if you'd like us to let you know when it's available in your country.",
   },
 ];
 
@@ -68,9 +68,9 @@ const policies = [
     icon: "→",
     items: [
       "Free standard shipping on orders over $50",
-      "Standard: 3–5 business days",
+      "Standard: 3–5 business days ($7.99, free over $50)",
       "Express: 1–2 business days ($12.99)",
-      "International: 7–14 business days",
+      "Shipping within New Zealand",
       "All orders include tracking",
     ],
   },
@@ -108,10 +108,37 @@ export default function SupportPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setError(false);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -288,11 +315,17 @@ export default function SupportPage() {
                   className="w-full border border-border rounded-xl px-4 py-3 text-sm text-foreground bg-transparent placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors resize-none"
                 />
               </div>
+              {error && (
+                <p className="text-sm text-red-500">
+                  Something went wrong sending your message. Please try again.
+                </p>
+              )}
               <button
                 type="submit"
-                className="w-full bg-foreground text-background text-sm font-medium py-3.5 rounded-full hover:opacity-80 transition-opacity"
+                disabled={sending}
+                className="w-full bg-foreground text-background text-sm font-medium py-3.5 rounded-full hover:opacity-80 transition-opacity disabled:opacity-50"
               >
-                Send Message
+                {sending ? "Sending…" : "Send Message"}
               </button>
             </form>
           )}

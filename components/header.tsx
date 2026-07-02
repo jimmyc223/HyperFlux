@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { CartIcon } from "@/components/cart/cart-icon";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -81,6 +82,8 @@ export function Header() {
             ))}
           </nav>
 
+          <CartIcon className="text-white/70 hover:text-white" />
+
           <Link
             href="/shop"
             className="px-4 py-2 text-sm font-bold tracking-widest uppercase transition-all rounded-full bg-primary text-white hover:bg-red-700"
@@ -89,15 +92,18 @@ export function Header() {
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          type="button"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="transition-colors text-white lg:hidden"
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile: cart + menu button */}
+        <div className="flex items-center gap-5 lg:hidden">
+          <CartIcon className="text-white/70 hover:text-white" />
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="transition-colors text-white"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
